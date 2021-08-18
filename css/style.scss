@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Spartan";
+    box-sizing: border-box;
+}
+
+// @mixin clearFix {
+    
+// }
+
+//Colors
+
+//Primary
+
+$Very-Dark-Magenta: hsl(300, 43%, 22%);
+$Soft-Pink: hsl(333, 80%, 67%);
+
+//Neutral
+
+$Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+$Light-Grayish-Magenta: hsl(300, 24%, 96%);
+$White: hsl(0, 0%, 100%);
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint == (mobile) {
+        @media screen and (max-width: 23.475em) { //375px
+            @content
+        };
+    };
+    @if $breakpoint == (mobile-land) {
+        @media screen and (max-width: 37.5em) { //600px
+            @content
+        };
+    };
+    @if $breakpoint == (tab-port) {
+        @media screen and (max-width: 56.25em) { //900
+            @content
+        };
+    };
+    @if $breakpoint == (laptop-small) {
+        @media screen and (max-width: 64em) { //1024
+            @content
+        };
+    };
+    @if $breakpoint == (laptop-big) {
+        @media screen and (max-width: 75em) { //1200
+            @content
+        };
+    };
+    @if $breakpoint == Desktop {
+        @media screen and (min-width: 90em) { //1440
+          @content;
+        };
+    };
+}
+
+
+html {
+    font-size: 62.5%; // 1rem = 10px 10/16*100 62.5%
+  
+    @include respond(mobile) {
+      // 1rem = 8px  8/16*100 50%
+      font-size: 50%;
+    };
+    @include respond(mobile-land){
+        // 1rem = 8.75px 8.75/16 *100
+        font-size: 54.6875%
+    };
+    @include respond(laptop-small) {
+      //1rem = 9.5px 9.5/16*100 56.25%
+      font-size: 59.375%;
+    };
+    @include respond(laptop-big) {
+      //1rem = 13px 13/16*100 
+      font-size: 81.25%;
+    };
+  
+    @include respond(desktop) {
+      font-size: 93.75%; //1rem = 15px 15/16 = 93.75%
+    };
+  
+}
+
+.socialproof {
+    position: relative;
+    @include respond(mobile){
+        width: 100%;
+    }
+    &::before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 68%;
+        bottom: 0;
+        content: "";
+        background:url("/images/bg-pattern-top-desktop.svg") no-repeat local ;
+        // width: 37%;
+        background-size: contain;
+
+       @include respond(mobile){
+           background: url("/images/bg-pattern-top-mobile.svg") no-repeat cover;
+           right: 0;
+        //    display: none;
+        //    background-size: cover;
+       }
+    }
+
+    &::after {
+        position: absolute;
+        top: 12%;
+        left: 27%;
+        right: 0;
+        bottom: 0;
+        content: "";
+        background: url("/images/bg-pattern-bottom-desktop.svg") repeat-x local;
+        background-size: cover;
+
+        @include respond(mobile) {
+            display: none;
+            background: url(/images/bg-pattern-top-mobile.svg) no-repeat cover;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            // top: 0;
+            // left: 0;
+        }
+        // width: 37%;
+    }
+
+    .container {
+        max-width: 110rem;
+        margin: 0 auto;
+        // padding: 5rem 0;
+        padding-top: 5rem;
+        padding-bottom: 1rem;
+        @include respond(laptop-small){
+            max-width: 64rem;
+        };
+        @include respond(laptop-big){
+            max-width: 75rem;
+        };
+        @include respond(mobile-land){
+            max-width: 40rem;
+        };
+        @include respond(mobile){
+            max-width: 25rem;
+            height: fit-content;
+            // width: fit-content;
+            margin: 0 auto;
+            padding: 6rem 0;
+        }
+
+        .headtag {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include respond(mobile){
+                display: block;
+            }
+
+            &__left {
+                width: 43rem ;
+                @include respond(mobile){
+                    width: fit-content;
+                    text-align: center;
+
+                }
+                h2 {
+                    font-size: 5rem;
+                    color: $Very-Dark-Magenta;
+                    letter-spacing: -.2rem;
+                    line-height: 1;
+                    @include respond(mobile) {
+                        font-size: 3rem;
+                    }
+                }
+                p {
+                    font-size: 1.38rem;
+                    color: $Dark-Grayish-Magenta;
+                    padding-top: 1.6rem;
+                    @include respond(mobile){
+                        font-size: 1.1rem;
+                        padding-top: 0.8rem;
+                        line-height: 1.4rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+            &__right {
+                @include respond(mobile){
+                    margin-top: 3rem;
+                    display: block;
+
+                    .stars-container{
+                        display: flex;
+                        align-items: center;
+                        img{
+                            margin-right: .5rem;
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+                width: auto;
+                display: grid;
+                row-gap: 1rem;
+                grid-template-areas: 
+                "a a a a a a a a a a a a a a a . . . ."
+                "a a a a a a a a a a a a a a a . . . ."
+                ". . . . . . . . . . . . . . . . . . ."
+                ". . b b b b b b b b b b b b b b b . ."
+                ". . b b b b b b b b b b b b b b b . ."
+                ". . . . . . . . . . . . . . . . . . ."
+                ". . . . c c c c c c c c c c c c c c c"
+                ". . . . c c c c c c c c c c c c c c c";
+
+                .rate-one {
+                    grid-area: a;
+                }
+                .rate-two {
+                    grid-area: b;
+                }
+                .rate-three {
+                    grid-area: c;
+                }
+
+
+                .rating-container {
+                    display: flex;
+                    align-items: center;
+                    padding: 1.5rem 2rem;
+                    background-color: $Light-Grayish-Magenta;  
+                    border-radius: .5rem;
+
+                    @include respond(mobile){
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 2rem;
+
+                        h6{
+                            margin-top: 1rem;
+                        }
+                        // align-items: center;
+                    }
+
+                    h6 {
+                        padding: 0 2rem;
+                        font-size: 1.1rem;
+                        color: $Very-Dark-Magenta;
+
+                        @include respond(mobile) {
+                            font-size: 1rem;
+                        }
+                    
+                    }
+                }
+            }
+        }
+        .testemonies {
+            margin-top: 6rem;
+            display: grid;
+            height: 27rem;
+            width: max-content;
+            gap: 4rem;
+            // gap: 2rem;
+            grid-template-areas: 
+
+            // when gap is 4rem this is good 
+
+            "a b c"; 
+
+            // when gap is 2 rem this is good
+
+            // "a a a a a a a a . b b b b b b b b b . c c c c c c c c"
+            // "a a a a a a a a . b b b b b b b b b . c c c c c c c c"
+            // "a a a a a a a a . b b b b b b b b b . c c c c c c c c"
+            // "a a a a a a a a . b b b b b b b b b . c c c c c c c c";
+
+            @include respond(mobile){
+                display: block;
+                margin-top: 3rem;
+                height: fit-content;
+            }
+
+            .first-child{
+                grid-area: a;
+                align-self: start;
+            }
+            .second-child {
+                grid-area: b;
+                align-self: center;
+            }
+            .third-child {
+                grid-area: c;
+                align-self: end;
+            }
+
+            &__child {
+                border-radius: 1.5rem;
+                width: 34rem;
+                padding: 4rem 3rem;
+                background-color: $Very-Dark-Magenta;
+                @include respond(mobile){
+                    width: 25rem;
+                    margin-bottom: 1rem;
+                    border-radius: .6rem;
+                    padding-bottom: 3rem;
+                }
+
+                .top-segment {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 2.2rem;
+                    img{
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 4rem;
+                        margin-right: 2rem;
+                        @include respond(mobile){
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            border-radius: 2.5rem;
+                            margin-right: 2rem;
+                        }
+                    }
+                    .nameTags {
+                        
+                        h5{
+                            font-size: 1.2rem;
+                            color: $Light-Grayish-Magenta;
+                            @include respond(mobile){
+                                font-size: 1rem;
+                            }
+                        }
+                        p{
+                            color: $Soft-Pink;
+                            font-size: 1.2rem;
+                            padding-top: .5rem;
+                            @include respond(mobile){
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+                .bottom-segment{
+                    color: $Light-Grayish-Magenta;
+                    font-size: 1.24rem;
+                    line-height: 1.8;
+
+                    @include respond(mobile) {
+                        font-size: 0.92rem;
+                    }
+                }
+            }
+        }
+    }
+}
