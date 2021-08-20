@@ -359,3 +359,125 @@ html {
         }
     }
 }
+
+
+.daythree {
+    $maximum-width: 25rem;
+    $width: 12rem;
+    $gap: 1rem;
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    background-color: skyblue;
+
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        .parent-element{
+            width: 22rem;
+            height: 22rem;
+            // margin: auto;
+
+            .top-element,
+            .bottom-element{
+                display: flex;
+                width: 100%;
+                height: 50%;
+            }
+            .top-element {
+                margin-bottom: $gap;
+            }
+            
+
+
+
+            .child-element {
+                position: relative;
+                width: 50%;
+                height: 100%;
+                // border: 1px solid black;
+                display:flex;
+                align-items: flex-end;
+                border-radius: 8px;
+                background-color: white;
+                opacity: .6;
+                transition: all 1s;
+
+                &:not(:last-child){
+                    margin-right: $gap;
+                }
+
+                &:hover{
+                    width: 100%;
+                    opacity: 1;
+                    .child-container {
+                        bottom: 8px;
+                        transition: all .8s;
+                        .amount{
+                            font-size: 3rem;
+                            transition: all 1s;
+                        }
+                        .size{
+                            font-size: 1.5rem;
+                            transition: all 1s;
+                        }
+                    }
+
+                    .rectangle {
+                        width: 80%;
+                        transition: all 1s;
+                    }
+                    .circle {
+                        background-color: yellowgreen;
+                    }
+                }
+                
+                .child-container {
+                    position: absolute;
+                    left:0;
+                    bottom: 16px;
+                    display: flex;
+                    align-items: baseline;
+                    padding-left: 1em;
+                    // padding-bottom: 2rem;
+                    // position: relative;
+
+                    .amount{
+                        margin-right: .2em;
+                        font-size: 2rem;
+                    }
+                    .size{
+                        font-size: 1rem;
+                    }
+                }
+                .rectangle {
+                    position: absolute;
+                    width: 15%;
+                    height: 5px;
+                    background-color: yellowgreen;
+                    left: 1rem;
+                    bottom: 10px;
+                }
+                .circle {
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 10px;
+                    border: 2px solid yellowgreen;
+                    // background-color: red;
+                    right: 1rem;
+                    top: 1rem;
+                }
+
+
+                
+
+               
+            }
+        }
+    }
+}
