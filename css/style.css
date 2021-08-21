@@ -396,7 +396,7 @@ html {
   position: relative;
   width: 25rem;
   height: 25rem;
-  background-color: skyblue;
+  margin: 0 auto;
 }
 
 .daythree .container {
@@ -438,8 +438,9 @@ html {
   border-radius: 8px;
   background-color: white;
   opacity: .6;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  cursor: pointer;
 }
 
 .daythree .container .parent-element .child-element:not(:last-child) {
@@ -453,30 +454,30 @@ html {
 
 .daythree .container .parent-element .child-element:hover .child-container {
   bottom: 8px;
-  -webkit-transition: all .8s;
-  transition: all .8s;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 .daythree .container .parent-element .child-element:hover .child-container .amount {
   font-size: 3rem;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .daythree .container .parent-element .child-element:hover .child-container .size {
   font-size: 1.5rem;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .daythree .container .parent-element .child-element:hover .rectangle {
   width: 80%;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .daythree .container .parent-element .child-element:hover .circle {
-  background-color: yellowgreen;
+  background-color: skyblue;
 }
 
 .daythree .container .parent-element .child-element .child-container {
@@ -505,7 +506,7 @@ html {
   position: absolute;
   width: 15%;
   height: 5px;
-  background-color: yellowgreen;
+  background-color: skyblue;
   left: 1rem;
   bottom: 10px;
 }
@@ -515,7 +516,80 @@ html {
   width: 10px;
   height: 10px;
   border-radius: 10px;
-  border: 2px solid yellowgreen;
+  border: 2px solid skyblue;
+  right: 1rem;
+  top: 1rem;
+}
+
+body {
+  background-color: skyblue;
+}
+
+.child-element-active {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border-radius: 8px;
+  background-color: white;
+  opacity: 1;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.child-element-active .child-container {
+  position: absolute;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  padding-left: 1em;
+  bottom: 8px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.child-element-active .child-container .amount {
+  margin-right: .2em;
+  font-size: 3rem;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.child-element-active .child-container .size {
+  font-size: 1.5rem;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.child-element-active .rectangle {
+  position: absolute;
+  height: 5px;
+  background-color: skyblue;
+  left: 1rem;
+  bottom: 10px;
+  width: 80%;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.child-element-active .circle {
+  background-color: skyblue;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  border: 2px solid skyblue;
   right: 1rem;
   top: 1rem;
 }

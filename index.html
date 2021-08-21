@@ -93,43 +93,54 @@
       <div class="container">
         <div class="parent-element">
           <div class="top-element">
-            <div class="child-element">
-              <span class="circle"></span>
+            <div class="child-element" id="1" onclick="transfromDiv(this.id)">
+              <span class="circle" id="11"></span>
               <div class="child-container">
-                <h3 class="amount">1</h3>
-                <h3 class="size">GB</h3>
+                <h3 class="amount" id="12">1</h3>
+                <h3 class="size" id="13">GB</h3>
               </div>
-              <span class="rectangle"></span>
+              <span class="rectangle" id="14"></span>
             </div>
-            <div class="child-element">
-              <span class="circle"></span>
+            <div class="child-element" id="2" onclick="transfromDiv(this.id)">
+              <span class="circle" id="21"></span>
               <div class="child-container">
-                <h3 class="amount">5</h3>
-                <h3 class="size">GB</h3>
+                <h3 class="amount" id="22">5</h3>
+                <h3 class="size" id="23">GB</h3>
               </div>
-              <span class="rectangle"></span>
+              <span class="rectangle" id="24"></span>
             </div>
           </div>
           <div class="bottom-element">
-            <div class="child-element">
-              <span class="circle"></span>
+            <div class="child-element" id="3" onclick="transfromDiv(this.id)">
+              <span class="circle" id="31"></span>
               <div class="child-container">
-                <h3 class="amount">10</h3>
-                <h3 class="size">GB</h3>
+                <h3 class="amount" id="32">10</h3>
+                <h3 class="size" id="33">GB</h3>
               </div>
-              <span class="rectangle"></span>
+              <span class="rectangle" id="34"></span>
             </div>
-            <div class="child-element">
-              <span class="circle"></span>
+            <div class="child-element" id="4" onclick="transfromDiv(this.id)">
+              <span class="circle" id="41"></span>
               <div class="child-container">
-                <h3 class="amount">20</h3>
-                <h3 class="size">GB</h3>
+                <h3 class="amount" id="42">20</h3>
+                <h3 class="size" id="43">GB</h3>
               </div>
-              <span class="rectangle"></span>
+              <span class="rectangle" id="44"></span>
             </div>
           </div>
         </div>
       </div>
+      <script>
+
+        let previousEl;
+        function transfromDiv(event) {
+          if (previousEl) previousEl.className = "child-element";
+          previousEl = document.getElementById(event);
+          previousEl.className = "child-element-active";
+         
+        }
+
+      </script>
   </section>
   
 </body>
